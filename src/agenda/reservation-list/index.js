@@ -29,14 +29,10 @@ class ReactComp extends Component {
     // the value of date key kas to be an empty array []. If there exists no value for date key it is
     // considered that the date in question is not yet loaded
     reservations: PropTypes.object,
-
     showOnlyDaySelected: PropTypes.bool,
 
     selectedDay: PropTypes.instanceOf(XDate),
     topDay: PropTypes.instanceOf(XDate),
-    refreshControl: PropTypes.element,
-    refreshing: PropTypes.bool,
-    onRefresh: PropTypes.func,
   };
 
   constructor(props) {
@@ -211,9 +207,6 @@ class ReactComp extends Component {
         scrollEventThrottle={200}
         onMoveShouldSetResponderCapture={() => {this.onListTouch(); return false;}}
         keyExtractor={(item, index) => String(index)}
-        refreshControl={this.props.refreshControl}
-        refreshing={this.props.refreshing || false}
-        onRefresh={this.props.onRefresh}
       />
     );
   }
